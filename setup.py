@@ -25,8 +25,8 @@ CLASSIFIERS = [
 ]
 
 setup(
-    name='unison',
-    description='A project for XDev',
+    name='esds-unison',
+    description='Automate execution of Jupyter Notebooks from another Notebook or the command line.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     python_requires='>=3.8',
