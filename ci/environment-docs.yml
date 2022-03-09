@@ -11,6 +11,11 @@ dependencies:
   - sphinx-autobuild
   - sphinx-copybutton
   - sphinx-inline-tabs
+  - rich
+  - typer
+  - jupyter_client
+  - nbformat
+  - nbconvert
   - pip:
       - sphinxext-opengraph
       - -e ..

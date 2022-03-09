@@ -4,4 +4,4 @@ target-version = ['py38']
 skip-string-normalization = true
 
 [build-system]
-requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2"]
+requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2", "setuptools_scm[toml]>=6.2"]

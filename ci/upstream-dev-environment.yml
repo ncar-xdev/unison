@@ -5,3 +5,8 @@ channels:
 dependencies:
   - pytest-cov
   - pre-commit
+  - rich
+  - typer
+  - jupyter_client
+  - nbformat
+  - nbconvert
