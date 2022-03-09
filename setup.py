@@ -25,7 +25,7 @@ CLASSIFIERS = [
 ]
 
 setup(
-    name='xdev-project',
+    name='unison',
     description='A project for XDev',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -33,19 +33,19 @@ setup(
     maintainer='NCAR XDev Team',
     maintainer_email='xdev@ucar.edu',
     classifiers=CLASSIFIERS,
-    url='https://xdev-project.readthedocs.io',
+    url='https://unison.readthedocs.io',
     project_urls={
-        'Documentation': 'https://xdev-project.readthedocs.io',
-        'Source': 'https://github.com/ncar-xdev/xdev-project',
-        'Tracker': 'https://github.com/ncar-xdev/xdev-project/issues',
+        'Documentation': 'https://unison.readthedocs.io',
+        'Source': 'https://github.com/ncar-xdev/unison',
+        'Tracker': 'https://github.com/ncar-xdev/unison/issues',
     },
     packages=find_packages(exclude=('tests',)),
-    package_dir={'xdev-project': 'xdev-project'},
+    package_dir={'unison': 'unison'},
     include_package_data=True,
     install_requires=install_requires,
     license='Apache 2.0',
     zip_safe=False,
     entry_points={},
-    keywords='ncar-xdev',
+    keywords='jupyter, cli, notebook, ipython',
     use_scm_version={'version_scheme': 'post-release', 'local_scheme': 'dirty-tag'},
 )

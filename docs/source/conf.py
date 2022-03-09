@@ -53,9 +53,9 @@ master_doc = 'index'
 
 # General information about the project.
 current_year = datetime.datetime.now().year
-project = 'xdev-project'
-copyright = f'{current_year}, xdev-project developers'
-author = 'xdev-project developers'
+project = 'unison'
+copyright = f'{current_year}, unison developers'
+author = 'unison developers'
 
 
 # The short X.Y version.
@@ -80,7 +80,7 @@ html_title = ''
 
 html_context = {
     'github_user': 'ncar-xdev',
-    'github_repo': 'xdev-project',
+    'github_repo': 'unison',
     'github_version': 'main',
     'doc_path': 'docs',
 }
@@ -101,7 +101,7 @@ html_last_updated_fmt = '%b %d, %Y'
 
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'xdev-projectdoc'
+htmlhelp_basename = 'unisondoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -116,17 +116,17 @@ latex_elements = {
 }
 
 
-latex_documents = [('index', 'xdev-project.tex', 'xdev-project Documentation', author, 'manual')]
+latex_documents = [('index', 'unison.tex', 'unison Documentation', author, 'manual')]
 
-man_pages = [('index', 'xdev-project', 'xdev-project Documentation', [author], 1)]
+man_pages = [('index', 'unison', 'unison Documentation', [author], 1)]
 
 texinfo_documents = [
     (
         'index',
-        'xdev-project',
-        'xdev-project Documentation',
+        'unison',
+        'unison Documentation',
         author,
-        'xdev-project',
+        'unison',
         'One line description of project.',
         'Miscellaneous',
     )

@@ -1,31 +1,21 @@
 name: CI
 on:
   push:
+    branches:
+      - main
   pull_request:
   schedule:
     - cron: '0 0 * * *' # Daily “At 00:00”
   workflow_dispatch: # allows you to trigger manually
 
-jobs:
-  skip-duplicate-jobs:
-    runs-on: ubuntu-latest
-    if: |
-      github.repository == 'ncar-xdev/python-project-template'
-    outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-    steps:
-      - id: skip_check
-        uses: fkirc/skip-duplicate-actions@v3.4.1
-        with:
-          # For workflows which are triggered concurrently with the same
-          # contents, attempt to execute them exactly once.
-          concurrent_skipping: 'same_content_newer'
-          paths_ignore: '["**/doc/**"]'
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
+jobs:
   build:
     name: python-${{ matrix.python-version }}
-    needs: skip-duplicate-jobs
-    if: ${{ needs.skip-duplicate-jobs.outputs.should_skip != 'true' }}
+    if: github.repository == 'ncar-xdev/unison'
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -35,20 +25,17 @@ jobs:
       matrix:
         python-version: ['3.8', '3.9', '3.10']
     steps:
-      - uses: actions/checkout@v2
-      - uses: conda-incubator/setup-miniconda@v2
+      - uses: actions/checkout@v3
+      - name: Create conda environment
+        uses: mamba-org/provision-with-micromamba@main
         with:
-          channels: conda-forge,nodefaults
-          channel-priority: strict
-          activate-environment: xdev-project-dev
-          auto-update-conda: false
-          python-version: ${{ matrix.python-version }}
+          cache-downloads: true
+          micromamba-version: 'latest'
           environment-file: ci/environment.yml
-          mamba-version: '*'
-          use-mamba: true
-          miniforge-variant: Mambaforge
+          extra-specs: |
+            python=${{ matrix.python-version }}
 
-      - name: Install xdev-project
+      - name: Install unison
         run: |
           python -m pip install -e . --no-deps --force-reinstall
           conda list
