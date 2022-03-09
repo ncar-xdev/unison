@@ -31,7 +31,7 @@ jobs:
         with:
           cache-downloads: true
           micromamba-version: 'latest'
-          environment-file: ci/environment-upstream-dev.yml
+          environment-file: ci/upstream-dev-environment.yml
           extra-specs: |
             python=${{ matrix.python-version }}
 
