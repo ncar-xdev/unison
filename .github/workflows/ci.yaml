@@ -42,6 +42,7 @@ jobs:
 
       - name: Run Tests
         run: |
+          conda env list --json
           python -m pytest
 
       - name: Upload code coverage to Codecov
