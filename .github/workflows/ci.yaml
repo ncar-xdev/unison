@@ -26,14 +26,18 @@ jobs:
         python-version: ['3.8', '3.9', '3.10']
     steps:
       - uses: actions/checkout@v3
-      - name: Create conda environment
-        uses: mamba-org/provision-with-micromamba@main
+      - uses: conda-incubator/setup-miniconda@v2
+        id: conda
         with:
-          cache-downloads: true
-          micromamba-version: 'latest'
+          channels: conda-forge
+          channel-priority: strict
+          activate-environment: unison-dev
+          auto-update-conda: false
+          python-version: ${{ matrix.python-version }}
+          mamba-version: '*'
+          use-mamba: true
+          miniforge-variant: Mambaforge
           environment-file: ci/environment.yml
-          extra-specs: |
-            python=${{ matrix.python-version }}
 
       - name: Install unison
         run: |
