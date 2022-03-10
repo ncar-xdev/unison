@@ -65,7 +65,7 @@ jobs:
         if: github.event_name == 'push'
         run: |
           python -m pip install --upgrade pip
-          python -m pip install dist/esds-unison*.whl
+          python -m pip install dist/esds_unison*.whl
           # python -c "import unison; print(unison.__version__)"
 
   upload-to-pypi:
