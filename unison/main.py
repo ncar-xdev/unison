@@ -23,10 +23,8 @@ class Unison:
                 env = pathlib.Path(env)
                 if env.stem == env_name:
                     return env
-        except Exception:
-            pass
-
-        finally:
+        except Exception as exc:
+            console.print(f'Error getting conda kernel path: {exc}')
             return None
 
     def set_kernel_name(
